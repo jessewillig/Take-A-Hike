@@ -19,6 +19,7 @@ store.on("error", (error) => {
   console.log(error);
 });
 
+//Session 
 app.use(session({
   secret: "Super secret secret",
   cookie: {
