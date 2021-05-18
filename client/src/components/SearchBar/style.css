@@ -1,0 +1,28 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .4rem 2.0rem;
+    position: sticky;
+    z-index: 1;
+    width: 100%;
+    background: linear-gradient(#202c23, 60%, black);
+}
+.search-title{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-right: auto;
+}
+.search-box {
+    display:block;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0px 0px 16px 16px;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+    color: #313131;
+}
+
+.search-box:focus {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+.search-bar-button {
+    
+}
