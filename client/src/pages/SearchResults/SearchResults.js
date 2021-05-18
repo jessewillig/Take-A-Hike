@@ -23,7 +23,7 @@ useEffect(() => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        setTitle(res.data[1][0]);
+        setTrailName(res.data[1][0]);
       })
       .catch(err => setError(err));
   }, [search]);
