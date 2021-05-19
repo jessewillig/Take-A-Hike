@@ -7,6 +7,7 @@ import SearchResults from './pages/SearchResults'
 import TrailPage from './pages/TrailPage'
 
 function App() {
+    document.title="Take A Hike"
     return
 }
 
