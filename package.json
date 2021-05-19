@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/jessewillig/Take-A-Hike#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "connect-mongodb-session": "^2.4.1",
     "dotenv": "^9.0.2",
