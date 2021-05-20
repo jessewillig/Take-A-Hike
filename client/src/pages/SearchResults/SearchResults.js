@@ -6,7 +6,7 @@ import SearchResults from "../../components/SearchResults";
 import Alert from "../../components/Alert";
 
 function Search() {
-    const [search, setSearch] = useState("Wikipedia");
+    const [search, setSearch] = useState("");
     const [trailName, setTrailName] = useState("");
     const [error, setError] = useState("");
 

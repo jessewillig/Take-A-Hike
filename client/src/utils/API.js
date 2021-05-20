@@ -1,10 +1,25 @@
-import axios from 'axios'
+// import axios from "axios";
+const axios = require('axios');
+const YELP_API_KEY = `Mw30ITWflSolse_YhQacZ7frFs0bKAwh-wteoRdVU4o3S9bfSkLyRsUsCToHzGSzZEvalTsvVasyid3MUq_HdOf3RGI-GUcamb557Pe7CGC5CsDVlmESpAApUgmiYHYx`
 
-function getAnime () {
-    return axios.get(`https://api.jikan.moe/v3/search/anime?q=fullmetal&order_by=title&sort=asc&limit=10`)
-}
-getAnime
-.then(response => {
-    response.json();
-    console.log(response)
-})
+// export default {
+
+const yelpFetch = async (term, location) => {
+await axios
+    .get(
+        `https://api.yelp.com/v3/businesses/search?categories=hiking&term=${term}&location=${location}`,
+      {
+        headers: {
+          Authorization: `Bearer ${YELP_API_KEY}`,
+        },
+      }
+    )
+    .then(response => {
+        console.log(response.data.businesses[0]);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+};
+
+yelpFetch('trail', 'olympia');
