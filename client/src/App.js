@@ -1,14 +1,16 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Landing from './pages/Landing'
-import Login from  './pages/Login'
-import Profile from './pages/Profile'
-import SearchResults from './pages/SearchResults'
-import TrailPage from './pages/TrailPage'
+import Landing from './pages/Landing/Landing'
 
 function App() {
     document.title="Take A Hike"
-    return
-}
 
+    return (
+        <Router>
+            <Switch>
+                <Route path='/' component={Landing}/>
+            </Switch>
+        </Router>
+    )
+}
 export default App

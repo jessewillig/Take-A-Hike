@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function SearchBar(props) {
+function SearchBar (props) {
   return (
         <div className="search-bar">
           <h1 className="search-title">Take A Hike</h1>
