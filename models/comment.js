@@ -17,11 +17,11 @@ const commentSchema = new Schema({
         type: Number,
         required: false
     },
-    // author: { 
-    //     type: Schema.ObjectID, 
-    //     ref: 'User',
-    //     required: true
-    // }
+    author: { 
+        type: Schema.Types.ObjectId, 
+        ref: 'User',
+        required: true
+    }
 });
 
 const Comment = mongoose.model('Comment', commentSchema);
