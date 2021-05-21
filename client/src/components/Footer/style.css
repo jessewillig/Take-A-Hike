@@ -2,10 +2,19 @@
     height: 100px;
     margin-top: 200px;
     background: linear-gradient(0deg, #aa8976 0%, #c6ebc9 65%) !important;
+    padding-bottom: 20px;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
 }
 
 .footer p {
     padding: 75px;
     font-size: larger;
     color: white;
+}
+
+@media only screen and (max-width: 640px) {
+    .footer {
+        margin-top: 50px;
+    }
 }
