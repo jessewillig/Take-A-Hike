@@ -8,7 +8,7 @@ router.post("/", withAuth, async (req, res) => {
             text: req.body.newComment,
             date: req.body.date,
             rating: req.body.newRating,
-            // author: req.session.author,
+            author: req.session.user_id,
         });
         res.status(200).json(userComment);
     } catch (err) {

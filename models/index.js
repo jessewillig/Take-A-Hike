@@ -1,4 +1,8 @@
+const User = require("./user");
+
 module.exports = { 
-    User: require("./User"),
-    Comment: require("./Comment")
+    User: require("./user"),
+    Comment: require("./comment"),
+    Hike: require("./hike")
 };
+

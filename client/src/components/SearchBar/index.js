@@ -1,70 +1,59 @@
 import React, {useState} from 'react';
+const axios = require('axios');
+const YELP_API_KEY = `Mw30ITWflSolse_YhQacZ7frFs0bKAwh-wteoRdVU4o3S9bfSkLyRsUsCToHzGSzZEvalTsvVasyid3MUq_HdOf3RGI-GUcamb557Pe7CGC5CsDVlmESpAApUgmiYHYx`
 
 export function SearchBar(props) {
-    const [term, setTerm] = useState(props.term || '');
+    // const [term, setTerm] = useState(props.term || '');
     const [location, setLocation] = useState(props.location || '');
+    const [trailName, setTrailName] = useState(props.location || '');
+
+    const yelpFetch = async (location) => {
+      await axios
+          .get(
+              `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=hiking&term=hiking&location=${location}`,
+            {
+              headers: {
+                Authorization: `Bearer ${YELP_API_KEY}`,
+              },
+            }
+          )
+          .then(response => {
+              setTrailName(response.data.businesses[0].name);
+          })
+          .catch(err => {
+              console.log(err);
+          });
+      };
+      
 
     function submit(e) {
-        if(typeof props.search === 'function') {
-            props.search(term, location);
-        }
-        console.log(term, location);
-        e.preventDefault();
+      yelpFetch (location)
+      e.preventDefault();
     }
 
     return (
-        <form onSubmit={console.log(yelpFetch(term, location))}>
-            <div>
+      <div className="wrap">
+        <form onSubmit={submit}>
+            <div className="search-bar-component">
                 <p>
                     <button>Search</button>
                 </p>
-                  <div className="search-term">
-                    <input
-                           onChange={(e) => setTerm(e.target.value)}
-                           type="text"
-                           value={term}
-                           placeholder="Search for a hike!"
-                    />
-                    </div>
-                
                 <div className="search-location">
                     <input
                            onChange={(e) => setLocation(e.target.value)}
                            type="text"
                            value={location}
                            placeholder="Location"/>
-                <div onClick={submit}>
-                </div>
                 </div>
             </div>
         </form>
+        <div className="search-result">
+          <h2>
+            Trail Name: {JSON.stringify(trailName)}
+          </h2>
+        </div>
+      </div>
     );
 }
-
-// import axios from "axios";
-const axios = require('axios');
-const YELP_API_KEY = ``
-
-// export default {
-
-const yelpFetch = async (term, location) => {
-await axios
-    .get(
-        `https://api.yelp.com/v3/businesses/search?categories=hiking&term=${term}&location=${location}`,
-      {
-        headers: {
-          Authorization: `Bearer ${YELP_API_KEY}`,
-        },
-      }
-    )
-    .then(response => {
-        console.log(response.data.businesses[0]);
-    })
-    .catch(err => {
-        console.log(err);
-    });
-};
-
-yelpFetch('trail', 'olympia');
 
 export default SearchBar
