@@ -7,13 +7,21 @@ const hikeSchema = new Schema({
         type: String,
         required: true,
     },
-    location: {
+    city: {
+        type: String,
+        required: true,
+    },
+    state: {
         type: String,
         required: true,
     },
     image: {
         type:String
-    }  
+    },
+    comments : [{
+        type: String.Types.ObjectId,
+        ref: 'Comment'
+    }]
 });
 
 const Hike = mongoose.model('Hike', hikeSchema);
