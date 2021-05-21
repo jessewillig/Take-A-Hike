@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const Comment = require("../../models");
+const Hike = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, async (req, res) => {
     try {
-        const userComment = await Comment.create({
+        const newHike = await Hike.create({
             text: req.body.newComment,
             date: req.body.date,
             rating: req.body.newRating,
@@ -14,6 +14,7 @@ router.post("/", withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
+
 });
 
 module.exports = router;
