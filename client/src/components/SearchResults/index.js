@@ -3,8 +3,8 @@ import "./style.css";
 
 function SearchResults(props) {
   return (
-    <ul className="list-group search-results">
-      <li className="list-group-item">
+    <ul className="trails-list search-results">
+      <li className="trails-list-item">
         <h2>{props.name}</h2>
       </li>
     </ul>
