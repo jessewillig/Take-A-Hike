@@ -1,0 +1,8 @@
+body, html, #root{
+    height: 100%;
+    font-family: 'Gloria Hallelujah', cursive;
+    scroll-behavior: smooth;
+    background-color: #c6ebc9;
+    position: relative;
+}
+
