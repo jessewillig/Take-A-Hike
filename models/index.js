@@ -2,7 +2,7 @@ const User = require("./user");
 
 module.exports = { 
     User: require("./user"),
-    Comment: require("./comment"),
-    Hike: require("./hike")
+    Comment: require("./Comment"),
+    Hike: require("./Hike")
 };
 
