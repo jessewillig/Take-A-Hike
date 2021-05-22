@@ -36,7 +36,7 @@ body {
     margin-top: -20px;
     width: 60%;
     max-width: 500px;
-    min-height: 30px
+    min-height: 30px;
 }
 
 .search-box:focus {
@@ -56,4 +56,13 @@ body {
 .search-bar-button:hover {
     color: rgb(251, 255, 0);
     border: rgb(251, 255, 0) 0.125em solid;
+}
+
+.uk-card {
+    text-align: center;
+    padding: 10px;
+}
+
+h3 {
+    font-family: 'Gloria Hallelujah', cursive;
 }
