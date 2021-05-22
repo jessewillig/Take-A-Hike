@@ -1,10 +1,12 @@
 import React from 'react';
-import SearchBar from '../../components/SearchBar/index'
+import SearchBar from '../../components/SearchBar';
+
 
 function Landing () {
 
     return (
-        <SearchBar/>
+
+        <SearchBar />
     )
 }
 export default Landing

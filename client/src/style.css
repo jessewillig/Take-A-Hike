@@ -4,5 +4,6 @@ body, html, #root{
     scroll-behavior: smooth;
     background-color: #c6ebc9;
     position: relative;
+    margin-bottom: 200px;
 }
 
