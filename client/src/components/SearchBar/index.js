@@ -34,7 +34,8 @@ export function SearchBar(props) {
 
     return (
       <div className="wrap">
-        <div class="uk-card uk-card-default uk-card-hover uk-width-1-5@m">
+        <div className="uk-flex">
+        <div class="uk-card uk-card-default uk-card-hover uk-width-1-5@m uk-margin-left">
           <h3 class="uk-card-title">Search For Hike.</h3>
         <form className="uk-search uk-search-default" onSubmit={submit}>
             <div className="search-bar-component">
@@ -52,10 +53,13 @@ export function SearchBar(props) {
             </div>
         </form>
         </div>
+        <div class="uk-card uk-card-default uk-card-hover uk-width-1-4@m uk-margin-left">
         <div className="search-result">
           <h2>
             Trail Name: {JSON.stringify(trailName)}
           </h2>
+        </div>
+        </div>
         </div>
       </div>
     );
