@@ -57,3 +57,13 @@ body {
     color: rgb(251, 255, 0);
     border: rgb(251, 255, 0) 0.125em solid;
 }
+
+.uk-card {
+    margin-right: 80%;
+    margin-left: 2%;
+    padding: 10px;
+}
+
+h3 {
+    font-family: 'Gloria Hallelujah', cursive;
+}
