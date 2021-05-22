@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Hike = require("../../models");
-const withAuth = require("../../utils/auth");
+const { Hike, Comment } = require("../../models");
+
 
 router.post("/", withAuth, async (req, res) => {
     try {
@@ -17,10 +17,24 @@ router.post("/", withAuth, async (req, res) => {
 
 });
 
-router.get("", withAuth, async (req, res) => {
+router.get("/comment/:id", async (req, res) => {
     try {
-        
+        const commentData = await Comment.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Hike
+                },
+            ],
+        });
+        const comment = commentData.get({ plain: true });
+
+        res.render("review", {
+            ...comment,
+            logged_in: res.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
     }
-})
+});
 
 module.exports = router;
