@@ -1,36 +1,57 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
+import { login } from "../../utils/API";
+import { useHikeContext } from "../../utils/GlobalState";
+import { ERROR, LOGIN } from "../../utils/actions";
 
-function Login({ email, password, handleInputChange, handleFormSubmit }) {
+function Login () {
+
+    const [state, dispatch] = useHikeContext();
+    const history = useHistory();
+
+    const emailRef = useRef();
+    const passwordRef = useRef();
+
+    const handleLogin = (event) => {
+        event.preventDefault()
+        login({
+            email: emailRef.current.vaule,
+            password: passwordRef.current.value
+        })
+            .then(response => {
+                dispatch({
+                    type: LOGIN,
+                    user: response.data
+                });
+
+                history.push("/");
+
+            })
+            .catch(error => {
+                dispatch({
+                    type: ERROR
+                })
+            })
+    }
+
+
     return (
-        <form>
-            <div className="form-row">
-                <div className="col-md-9">
-                    <input
-                        name="email"
-                        type="text"
-                        onChange={handleInputChange}
-                        className="form-control"
-                        placeholder="Enter your email"
-                        id="username"
-                    />
-                </div>
-                <div className="col-md-9">
-                    <input
-                        name="password"
-                        type="text"
-                        onChange={handleInputChange}
-                        className="form-control"
-                        placeholder="Enter your password"
-                        id="password"
-                    />
-                </div>
-                <div className="col-md-3">
-                    <button className="btn btn-light btn-sm form-control" type="submit" onClick={handleFormSubmit}>
-                        Login
-                    </button>
-                </div>
-            </div>
-        </form>
+        <div>
+            <form>
+                <filedset className="uk-fieldset">
+                    <legend className="uk-legend">Login</legend>
+                    <div className="uk-margin">
+                        <input className="uk-input" type="text" placeholder="Email" ref={emailRef}></input>
+                    </div>
+                    <div className="uk-margin">
+                        <input className="uk-input" type="text" placeholder="Password" ref={passwordRef}></input>
+                    </div>
+                    <div className="uk-margin">
+                        <button class="uk-button uk-button-default" type="submit" onClick={handleLogin}>Login</button>
+                    </div>
+                </filedset>
+            </form>
+        </div>
     );
 }
 
