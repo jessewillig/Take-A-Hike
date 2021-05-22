@@ -10,7 +10,7 @@ router.post("/", withAuth, async (req, res) => {
             rating: req.body.newRating,
             author: req.session.user_id,
         });
-        res.status(200).json(userComment);
+        res.status(200).json(newHike);
     } catch (err) {
         res.status(500).json(err)
     }
