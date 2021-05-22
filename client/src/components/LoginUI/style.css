@@ -1,0 +1,17 @@
+.login {
+    background-color: #f0e2d0;
+    color: black !important;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 10px;
+    margin-top: 5%;
+}
+
+.uk-search-input {
+    background-color: #aa8976 !important;
+    
+}
+
+.uk-card-hover {
+    background-color: #f0e2d0 !important;
+}

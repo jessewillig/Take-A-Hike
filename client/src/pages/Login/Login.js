@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import "../../components/LoginUI/style.css"
 import { useHistory } from "react-router-dom";
 import { login } from "../../utils/API";
 import { useHikeContext } from "../../utils/GlobalState";
@@ -15,7 +16,7 @@ function Login() {
     const handleLogin = (event) => {
         event.preventDefault()
         login({
-            email: emailRef.current.vaule,
+            email: emailRef.current.value,
             password: passwordRef.current.value
         })
             .then(response => {
@@ -37,21 +38,25 @@ function Login() {
 
     return (
         <div>
-            <form>
-                <filedset className="uk-fieldset">
-                    <legend className="uk-legend">Login</legend>
-                    <div className="uk-margin">
-                        <input className="uk-input" type="text" placeholder="Email" ref={emailRef}></input>
-                    </div>
-                    <div className="uk-margin">
-                        <input className="uk-input" type="text" placeholder="Password" ref={passwordRef}></input>
-                    </div>
-                    <div className="uk-margin">
-                        <button class="uk-button uk-button-default" type="submit" onClick={handleLogin}>Login</button>
-                    </div>
-                </filedset>
+        <div class="uk-card uk-card-default uk-card-hover uk-width-1-3@m  login">
+            <div class="uk-container uk-container-small">
+             <form>
+                 <fieldset className="uk-fieldset">
+                <legend className="uk-legend">Login</legend>
+                <div className="uk-margin">
+                    <input className="uk-input" type="text" placeholder="Email" ref={emailRef}></input>
+                </div>
+                <div className="uk-margin">
+                    <input className="uk-input" type="text" placeholder="Password" ref={passwordRef}></input>
+                </div>
+                <div className="uk-margin">
+                    <button class="uk-button uk-button-primary" type="submit" onClick={handleLogin}>Login</button>
+                </div>
+                </fieldset>
             </form>
+            </div>
         </div>
+    </div>
     );
 }
 

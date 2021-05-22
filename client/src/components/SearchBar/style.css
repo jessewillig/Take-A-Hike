@@ -61,8 +61,17 @@ body {
 .uk-card {
     text-align: center;
     padding: 10px;
+    background-color: #f0e2d0;
+}
+
+.uk-input {
+    background-color: #aa8976 !important;
 }
 
 h3 {
     font-family: 'Gloria Hallelujah', cursive;
+}
+
+.uk-card-hover {
+    background-color: #f0e2d0 !important;
 }
