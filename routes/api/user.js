@@ -8,7 +8,6 @@ router.post('/', async (req, res) => {
         newUser.password = await bcrypt.hash(req.body.password, 10);
         const userData = await db.User.create(newUser);
 
-        //todo: session isn't set up yet
         req.session.save(() => {
             req.session.user_id = userData._id;
             req.session.logged_in = true;
@@ -16,7 +15,8 @@ router.post('/', async (req, res) => {
                 user_id: userData._id,
                 username: userData.username
             });
-        });
+        })
+
     } catch (err) {
         console.error(err);
         res.status(400).json(err);
@@ -33,8 +33,6 @@ router.post('/login', async (req, res) => {
                 .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
-
-        console.log(req.body.password, userData.password);
 
         const validPassword = await bcrypt.compare(
             req.body.password,

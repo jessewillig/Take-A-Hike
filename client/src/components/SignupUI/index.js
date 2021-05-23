@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import "../../components/LoginUI/style.css"
+import "../../components/SignupUI/style.css"
 import { useHistory } from "react-router-dom";
-import { signup } from "../../utils/API";
+import { signup, login } from "../../utils/API";
 import { useHikeContext } from "../../utils/GlobalState";
 import { ERROR, LOGIN } from "../../utils/actions";
 import { Link } from "react-router-dom";
@@ -33,7 +33,7 @@ function SignupUI() {
             })
             .catch(error => {
                 dispatch({
-                    type: ERROR
+                    ERROR
                 })
             })
     }
