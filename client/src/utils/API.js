@@ -25,10 +25,12 @@ const yelpFetch = async (term, location) => {
 const signup = (user) => axios.post("/api/users/", user);
 const login = (user) => axios.post("/api/users/login", user);
 const logout = () => axios.post("/api/users/logout");
+const authenticatedUser = () => axios.get("/api/users/authenticatedUser");
 
 export {
   yelpFetch,
   signup,
   login,
-  logout
+  logout,
+  authenticatedUser
 }

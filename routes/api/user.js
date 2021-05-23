@@ -1,14 +1,14 @@
-const router = require("express").Router();
+const router = require('express').Router();
 const db = require("../../models");
 const bcrypt = require("bcrypt");
 
 router.post('/', async (req, res) => {
     try {
         const newUser = req.body;
-        //hash password
         newUser.password = await bcrypt.hash(req.body.password, 10);
         const userData = await db.User.create(newUser);
 
+        //todo: session isn't set up yet
         req.session.save(() => {
             req.session.user_id = userData._id;
             req.session.logged_in = true;
@@ -16,9 +16,7 @@ router.post('/', async (req, res) => {
                 user_id: userData._id,
                 username: userData.username
             });
-        })
-
-
+        });
     } catch (err) {
         console.error(err);
         res.status(400).json(err);
@@ -32,9 +30,11 @@ router.post('/login', async (req, res) => {
         if (!userData) {
             res
                 .status(400)
-                .json({ message: "Incorrect eamil or password, please try again." });
+                .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
+
+        console.log(req.body.password, userData.password);
 
         const validPassword = await bcrypt.compare(
             req.body.password,
@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
         if (!validPassword) {
             res
                 .status(400)
-                .json({ message: "Incorrect email or password, please try again." });
+                .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
 
@@ -52,22 +52,31 @@ router.post('/login', async (req, res) => {
             req.session.user_id = userData._id;
             req.session.logged_in = true;
 
-            res.json({ user: { username: userData.username, user_id: userData._id }, message: "You are now logged in!" })
-        })
+            res.json({ username: userData.username, user_id: userData._id, message: 'You are now logged in!' });
+        });
 
     } catch (err) {
-
+        console.error(err);
+        res.status(400).json(err);
     }
 });
 
 router.post('/logout', (req, res) => {
-    if (req.sessioin.logged_in) {
+    if (req.session.logged_in) {
         req.session.destroy(() => {
             res.status(204).end();
         });
     } else {
-        res.statue(404).end();
+        res.status(404).end();
     }
 });
+
+router.get("/authenticatedUser", (req, res) => {
+    if (req.session.logged_in) {
+        res.status(200).json({ user_id: req.session.user_id })
+    } else {
+        res.status(204).end();
+    }
+})
 
 module.exports = router;

@@ -19,7 +19,7 @@ const hikeSchema = new Schema({
         type:String
     },
     comments : [{
-        type: String.Types.ObjectId,
+        type: Schema.Types.ObjectId, 
         ref: 'Comment'
     }]
 });
