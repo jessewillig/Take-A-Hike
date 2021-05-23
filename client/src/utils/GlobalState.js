@@ -29,12 +29,13 @@ const reducer = (state, action) => {
     }
 }
 
-const HikeProvider = ({ value = {}, ...props }) => {
+const HikeProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useReducer(reducer, {
         user: {}
-    })
+    });
+
     return <Provider value={[state, dispatch]} {...props} />
-}
+};
 
 const useHikeContext = () => {
     return useContext(HikeContext);
