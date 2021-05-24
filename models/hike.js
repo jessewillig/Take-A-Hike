@@ -16,12 +16,16 @@ const hikeSchema = new Schema({
         required: true,
     },
     image: {
-        type:String
+        type: String
     },
     comments : [{
-        type: String.Types.ObjectId,
+        type: Schema.Types.ObjectId, 
         ref: 'Comment'
-    }]
+    }],
+    user_id: { 
+        type: Schema.Types.ObjectId, 
+        ref: 'User',
+    }
 });
 
 const Hike = mongoose.model('Hike', hikeSchema);

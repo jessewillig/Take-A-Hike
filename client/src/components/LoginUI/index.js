@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
+import "../../components/LoginUI/style.css"
 import { useHistory } from "react-router-dom";
 import { login } from "../../utils/API";
 import { useHikeContext } from "../../utils/GlobalState";
 import { ERROR, LOGIN } from "../../utils/actions";
+import { Link } from "react-router-dom";
 
-function Login () {
+function LoginUI() {
 
     const [state, dispatch] = useHikeContext();
     const history = useHistory();
@@ -37,8 +39,8 @@ function Login () {
 
     return (
         <div>
-        <div class="uk-card uk-card-default uk-width-1-3@m  login">
-            <div class="uk-container uk-container-small">
+        <div className="uk-card uk-card-default uk-card-hover uk-width-1-3@m  login">
+            <div className="uk-container uk-container-small">
              <form>
                  <fieldset className="uk-fieldset">
                 <legend className="uk-legend">Login</legend>
@@ -46,10 +48,13 @@ function Login () {
                     <input className="uk-input" type="text" placeholder="Email" ref={emailRef}></input>
                 </div>
                 <div className="uk-margin">
-                    <input className="uk-input" type="text" placeholder="Password" ref={passwordRef}></input>
+                    <input className="uk-input" type="password" placeholder="Password" ref={passwordRef}></input>
                 </div>
                 <div className="uk-margin">
-                    <button class="uk-button uk-button-primary" type="submit" onClick={handleLogin}>Login</button>
+                    <button className="uk-button uk-button-primary" type="submit" onClick={handleLogin}>Login</button>
+                </div>
+                <div className="uk-margin">
+                <ul><Link to="/signup">Sign-Up Instead!</Link></ul>                
                 </div>
                 </fieldset>
             </form>
@@ -59,4 +64,4 @@ function Login () {
     );
 }
 
-export default Login;
+export default LoginUI;
