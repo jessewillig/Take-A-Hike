@@ -1,0 +1,43 @@
+.hikeCard {
+    margin: 10px auto;
+    border: none;
+    padding: 0px !important;
+}
+
+.hikeName {
+    color: white !important;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.hikeLocation {
+    margin-top: 10px;
+    color: white;
+}
+
+.hikeImg {
+    border-radius: 30px;
+    display: block;
+    margin: 10px auto;
+}
+
+hr {
+    border: 1px solid rgb(255, 238, 0);
+}
+
+.goodStar, .fa-road, .fa-sign, .fa-mountain, .fa-heart, .fa-map-marker-alt {
+    color: rgb(255, 238, 0);
+}
+
+.hikeInfo p {
+    color: white;
+}
+
+@media only screen and (max-width: 640px) {
+    .hikeInfo p {
+        text-align: center;
+    }
+    .hikePicDiv, .hikeInfo {
+        padding: 0px !important;
+    }
+}
