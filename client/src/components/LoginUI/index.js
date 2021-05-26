@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "../../components/LoginUI/style.css"
+import "./style.css";
 import { useHistory } from "react-router-dom";
 import { login } from "../../utils/API";
 import { useHikeContext } from "../../utils/GlobalState";
