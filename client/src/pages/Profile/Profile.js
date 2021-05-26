@@ -3,6 +3,9 @@ import Header from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 import Hike from "../../components/Hike";
 import Footer from "../../components/Footer";
+import { Container } from "../../components"
+import { List } from "../../components/List"
+
 
 class Saved extends Component {
     state = {
@@ -42,6 +45,8 @@ class Saved extends Component {
             <div>
                 <Nav />
                 <Header />
+                <Container className="uk-container-expand">
+                <Card title="SavedHikes">
                 {this.state.savedHikes.length ? (
                     <List>
                         {this.state.savedHikes.map(hike => (
@@ -71,6 +76,9 @@ class Saved extends Component {
                         <p>No Hikes have been saved..</p>
                     </div>
                 )}
+                   </Card>
+                </Container>
+                <Footer />
             </div>
         )
     }
