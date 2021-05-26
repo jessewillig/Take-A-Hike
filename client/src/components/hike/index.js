@@ -5,6 +5,7 @@ import "./style.css";
 
 function HikeCard(props) {
     const linkObj = {
+        pathname: `/Take-a-hike/${props.id}`,
         hikeProps: {
             name: `${props.name}`,
             bigimg: `${props.bigimg}`,
