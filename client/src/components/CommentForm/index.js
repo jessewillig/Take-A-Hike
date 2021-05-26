@@ -15,7 +15,7 @@ function CommentForm () {
             comment: commentRef.current.value
         }).then(response => {
             dispatchEvent({
-                type: POST,
+                type: 'POST',
                 user: response.data
             });
         }).catch(error => {
