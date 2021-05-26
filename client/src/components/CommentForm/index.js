@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { ERROR } from "../../utils/actions";
 import "./style.css";
 
 function CommentForm () {
@@ -8,11 +9,19 @@ function CommentForm () {
 
     const submitReview = (event) => {
         event.preventDefault()
+        
         submitReview({
             rating: ratingRef.current.value,
             comment: commentRef.current.value
         }).then(response => {
-            
+            dispatchEvent({
+                type: POST,
+                user: response.data
+            });
+        }).catch(error => {
+            dispatchEvent({
+                type: ERROR
+            })
         })
     }
 
