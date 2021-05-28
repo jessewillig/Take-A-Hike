@@ -11,39 +11,9 @@ class Saved extends Component {
         savedHikes: []
     };
 
-
-    // componentDidMount = () => {
-    //     this.getSavedHikes();
-    // };
-
-    // getSavedHikes = () => {
-    //     API.getHikes()
-    //         .then(res => {
-    //             this.setState({
-    //                 savedHikes: res.data
-    //             })
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //         })
-    // };
-
-    // deleteHike = id => {
-    //     API.deleteHike(id)
-    //         .then(res => {
-    //             console.log("You must have hated this hike to delete it!", res)
-    //             this.getSavedHikes();
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //         })
-    // };
-
     render () {
         return (
             <div>
-                {/* <Container className="uk-container-expand"> */}
-                {/* <Card title="SavedHikes"> */}
                 <Grid />
                 {this.state.savedHikes.length ? (
                     <List>
@@ -74,8 +44,7 @@ class Saved extends Component {
                         <p>No Hikes have been saved..</p>
                     </div>
                 )}
-                   {/* </Card> */}
-                {/* </Container> */}
+                   
                 <Footer />
             </div>
         )
