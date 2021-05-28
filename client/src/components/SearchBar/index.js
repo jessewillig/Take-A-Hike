@@ -54,19 +54,21 @@ export function SearchBar(props) {
                            placeholder="Location"/>
                 </div>
                 <p>
-                    <button className="uk-button uk-button-primary uk-button-small">Search</button>
+                  <button className="uk-button uk-button-primary uk-button-small">
+                    Search
+                  </button>
                 </p>
-            </div>
-        </form>
-        </div>
-        <div className="uk-card uk-card-default uk-card-hover uk-width-1-4@m uk-margin-left">
-                <div className="search-result">
-                    <h2>Trail Name: {JSON.stringify(trailResults[0].name)}</h2>
-                    <p>Location: {JSON.stringify(trailResults[0].city)}, {JSON.stringify(trailResults[0].state)}</p>
-                </div>
+              </div>
+            </form>
           </div>
-        </div>
-        </div>
+          <div className="uk-card uk-card-default uk-card-hover uk-width-1-4@m uk-margin-left">
+            <div className="search-result">
+              <h2>
+                Trail Name:{" "}
+                {JSON.stringify(trailResults[0].name)}
+              </h2>
+            </div>
+          </div>
         </div>
       </div>
     );
