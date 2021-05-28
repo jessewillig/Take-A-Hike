@@ -1,37 +1,67 @@
-import React from "react";
+import React, { useRef } from "react";
+import "../../components/LoginUI/style.css"
+import { useHistory } from "react-router-dom";
+import { login } from "../../utils/API";
+import { useHikeContext } from "../../utils/GlobalState";
+import { ERROR, LOGIN } from "../../utils/actions";
+import { Link } from "react-router-dom";
 
-function Login({ email, password, handleInputChange, handleFormSubmit }) {
+function LoginUI() {
+
+    const [state, dispatch] = useHikeContext();
+    const history = useHistory();
+
+    const emailRef = useRef();
+    const passwordRef = useRef();
+
+    const handleLogin = (event) => {
+        event.preventDefault()
+        login({
+            email: emailRef.current.value,
+            password: passwordRef.current.value
+        })
+            .then(response => {
+                dispatch({
+                    type: LOGIN,
+                    user: response.data
+                });
+
+                history.push("/");
+
+            })
+            .catch(error => {
+                dispatch({
+                    type: ERROR
+                })
+            })
+    }
+
+
     return (
-        <form>
-            <div className="form-row">
-                <div className="col-md-9">
-                    <input
-                        name="email"
-                        type="text"
-                        onChange={handleInputChange}
-                        className="form-control"
-                        placeholder="Enter your email"
-                        id="username"
-                    />
+        <div>
+        <div className="uk-card uk-card-default uk-card-hover uk-width-1-3@m  login">
+            <div className="uk-container uk-container-small">
+             <form>
+                 <fieldset className="uk-fieldset">
+                <legend className="uk-legend">Login</legend>
+                <div className="uk-margin">
+                    <input className="uk-input" type="text" placeholder="Email" ref={emailRef}></input>
                 </div>
-                <div className="col-md-9">
-                    <input
-                        name="password"
-                        type="text"
-                        onChange={handleInputChange}
-                        className="form-control"
-                        placeholder="Enter your password"
-                        id="password"
-                    />
+                <div className="uk-margin">
+                    <input className="uk-input" type="password" placeholder="Password" ref={passwordRef}></input>
                 </div>
-                <div className="col-md-3">
-                    <button className="btn btn-light btn-sm form-control" type="submit" onClick={handleFormSubmit}>
-                        Login
-                    </button>
+                <div className="uk-margin">
+                    <button className="uk-button uk-button-primary" type="submit" onClick={handleLogin}>Login</button>
                 </div>
+                <div className="uk-margin">
+                <ul><Link to="/signup">Sign-Up Instead!</Link></ul>                
+                </div>
+                </fieldset>
+            </form>
             </div>
-        </form>
+        </div>
+    </div>
     );
 }
 
-export default Login;
+export default LoginUI;

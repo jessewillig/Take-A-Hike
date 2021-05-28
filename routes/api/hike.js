@@ -1,20 +1,18 @@
 const router = require("express").Router();
-const Hike = require("../../models");
 const withAuth = require("../../utils/auth");
+const hikeController = require("../../controllers/hikeController")
 
-router.post("/", withAuth, async (req, res) => {
-    try {
-        const newHike = await Hike.create({
-            text: req.body.newComment,
-            date: req.body.date,
-            rating: req.body.newRating,
-            author: req.session.user_id,
-        });
-        res.status(200).json(userComment);
-    } catch (err) {
-        res.status(500).json(err)
-    }
+// Matches with "/api/hikes"
+router
+  .route("/")
+  .get(hikeController.findAll)
+  .post(hikeController.create);
 
-});
+// Matches with "/api/hikes/:id"
+router
+  .route("/:id")
+  .get(hikeController.findById)
+  .put(hikeController.update)
+  .delete(hikeController.remove);
 
 module.exports = router;

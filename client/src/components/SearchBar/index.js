@@ -66,6 +66,8 @@ export function SearchBar(props) {
                 </div>
           </div>
         </div>
+        </div>
+        </div>
       </div>
     );
 }
