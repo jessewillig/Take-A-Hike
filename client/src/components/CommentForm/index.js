@@ -7,23 +7,41 @@ function CommentForm () {
     const ratingRef = useRef();
     const commentRef = useRef();
 
-    const submitReview = (event) => {
+    const submitReview = async function (event) {
         event.preventDefault()
-        
-        submitReview({
-            rating: ratingRef.current.value,
-            comment: commentRef.current.value
-        }).then(response => {
-            dispatchEvent({
-                type: POST,
-                user: response.data
+
+        if (submitReview) {
+            const response = await fetch("/api/comments", {
+                method: "POST",
+                body: JSON.stringify({ ratingRef, commentRef }),
+                headers: { 'Content-Type': 'application/json' }
             });
-        }).catch(error => {
-            dispatchEvent({
-                type: ERROR
-            })
-        })
+
+            if (response.ok) {
+                useRef.replace('/');
+            } else {
+                alert(response.statusText);
+            }
+        }
     }
+
+    // const submitReview = (event) => {
+    //     event.preventDefault()
+        
+    //     submitReview({
+    //         rating: ratingRef.current.value,
+    //         comment: commentRef.current.value
+    //     }).then(response => {
+    //         dispatchEvent({
+    //             type: 'POST',
+    //             user: response.data
+    //         });
+    //     }).catch(error => {
+    //         dispatchEvent({
+    //             type: ERROR
+    //         })
+    //     })
+    // }
 
     return (
         <div>
