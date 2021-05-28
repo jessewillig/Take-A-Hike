@@ -3,8 +3,9 @@ import Header from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 import Hike from "../../components/Hike";
 import Footer from "../../components/Footer";
-import { Container } from "../../components"
+// import { Container } from "../../components"
 import { List } from "../../components/List"
+import Grid from "../../components/Grid"
 
 
 class Saved extends Component {
@@ -13,40 +14,39 @@ class Saved extends Component {
     };
 
 
-    componentDidMount = () => {
-        this.getSavedHikes();
-    };
+    // componentDidMount = () => {
+    //     this.getSavedHikes();
+    // };
 
-    getSavedHikes = () => {
-        API.getHikes()
-            .then(res => {
-                this.setState({
-                    savedHikes: res.data
-                })
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    };
+    // getSavedHikes = () => {
+    //     API.getHikes()
+    //         .then(res => {
+    //             this.setState({
+    //                 savedHikes: res.data
+    //             })
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         })
+    // };
 
-    deleteHike = id => {
-        API.deleteHike(id)
-            .then(res => {
-                console.log("You must have hated this hike to delete it!", res)
-                this.getSavedHikes();
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    };
+    // deleteHike = id => {
+    //     API.deleteHike(id)
+    //         .then(res => {
+    //             console.log("You must have hated this hike to delete it!", res)
+    //             this.getSavedHikes();
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         })
+    // };
 
     render () {
         return (
             <div>
-                <Nav />
-                <Header />
-                <Container className="uk-container-expand">
-                <Card title="SavedHikes">
+                {/* <Container className="uk-container-expand"> */}
+                {/* <Card title="SavedHikes"> */}
+                <Grid />
                 {this.state.savedHikes.length ? (
                     <List>
                         {this.state.savedHikes.map(hike => (
@@ -76,8 +76,8 @@ class Saved extends Component {
                         <p>No Hikes have been saved..</p>
                     </div>
                 )}
-                   </Card>
-                </Container>
+                   {/* </Card> */}
+                {/* </Container> */}
                 <Footer />
             </div>
         )
