@@ -1,4 +1,4 @@
-
+import axios from "axios";
 const yelp = require('yelp-fusion');
 const client = yelp.client(process.env.REACT_APP_YELP_API_KEY);
 
@@ -10,7 +10,7 @@ client.search({
 }).catch(e => {
   console.log(e);
 });
-import axios from "axios";
+
 
 const weatherbit = async (longitude, latitude) => {
   await axios.get('https://weatherbit-v1-mashape.p.rapidapi.com/current', {
@@ -52,13 +52,15 @@ const signup = (user) => axios.post("/api/users/", user);
 const login = (user) => axios.post("/api/users/login", user);
 const logout = () => axios.post("/api/users/logout");
 const authenticatedUser = () => axios.get("/api/users/authenticatedUser");
+const postComment = () => axios.post("/api/comments");
 
 export {
   weatherbit,
-  yelpFetch,
+  //yelpFetch,
   signup,
   login,
   logout,
-  authenticatedUser
+  authenticatedUser,
+  postComment
 }
 
