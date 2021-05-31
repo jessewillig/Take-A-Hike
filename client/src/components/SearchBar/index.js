@@ -72,8 +72,8 @@ export function SearchBar(props) {
               <p>
                 Location:{" "}
                 {JSON.stringify([
-                  trailDetails.city,
-                  trailDetails.state,
+                  trailResults.city,
+                  trailResults.state,
                 ]).replace(/['"]+/g, "")}
               </p>
             </div>

@@ -1,16 +1,10 @@
 import React, {useState} from 'react';
-import SearchBar from '../../components/SearchBar/index'
-const axios = require('axios');
+import SearchBar from '../../components/SearchBar'
+//import CommentForm from "../../components/CommentForm"
+
 
 function Landing () {
-    // const [term, setTerm] = useState(props.term || '');
-    // const [trailDetails, setTrailDetails] = useState({
-    //   name: '',
-    //   city: '',
-    //   state:'',
-    //   coordinates:'',
-    //   image_url:''
-    // });
+   
     return (
         <div>
             <SearchBar/>

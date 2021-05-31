@@ -5,8 +5,8 @@ import Header from "./components/Jumbotron"
 import Landing from './pages/Landing/Landing';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
-import Login from './pages/Login/Login'
-import Signup from './pages/SignUp/Signup'
+import Login from './pages/Login/Login';
+import Signup from './pages/SignUp/Signup';
 
 function App() {
     document.title = "Take A Hike"
