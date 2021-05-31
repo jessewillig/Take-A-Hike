@@ -5,9 +5,10 @@ const axios = require('axios');
 export function SearchBar(props) {
   const [location, setLocation] = useState('');
   const [trailResults, setTrailResults] = useState('Search for a trail!')
+  
   function handleSubmit(e) {
-    yelpFetch (location)
     e.preventDefault();
+    yelpFetch (location);
   }
   function handleChange(e) {
       setLocation(e.target.value)
