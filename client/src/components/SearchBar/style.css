@@ -68,7 +68,12 @@ body {
     background-color: #aa8976 !important;
 }
 
-h3 {
+
+::placeholder, .uk-search-input {
+    color: black!important;
+}
+
+h3, h2 {
     font-family: 'Gloria Hallelujah', cursive;
 }
 
