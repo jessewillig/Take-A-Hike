@@ -6,7 +6,7 @@ export function SearchBar(props) {
     return (
       <div className="wrap">
         <div className="uk-flex">
-        <div className="uk-card uk-card-default uk-card-hover uk-width-1-4@m uk-margin-left">
+        <div className="uk-card uk-card-default uk-card-hover uk-width-expand uk-margin">
           <h3 className="uk-card-title">Search For Hike</h3>
         <form className="uk-search uk-search-default" onSubmit={props.handleSubmit}>
             <div className="search-bar-component">
