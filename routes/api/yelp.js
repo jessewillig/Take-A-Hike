@@ -2,7 +2,7 @@ const router = require('express').Router();
 const bcrypt = require("bcrypt");
 const axios = require('axios');
 
-const token = `Mw30ITWflSolse_YhQacZ7frFs0bKAwh-wteoRdVU4o3S9bfSkLyRsUsCToHzGSzZEvalTsvVasyid3MUq_HdOf3RGI-GUcamb557Pe7CGC5CsDVlmESpAApUgmiYHYx`;
+const token = process.env.TOKEN;
 const config = {
     headers: { Authorization: `Bearer ${token}` },
 };

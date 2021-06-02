@@ -19,6 +19,7 @@ function App() {
         yelpFetch (location)
         e.preventDefault();
     }
+    // localhost in axios.post will need to be changed to heroku url upon deployment!
     const yelpFetch = async (location) => {
         await axios
             .post("http://localhost:3001/api/yelp", { location: location})
