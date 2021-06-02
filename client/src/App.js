@@ -25,7 +25,7 @@ function App() {
                 console.log(response);
                 setTrailResults(
                 response.data.map(data => ({
-                     name: data.name.replace(/['"]+/g, ''),
+                    name: data.name.replace(/['"]+/g, ''),
                     city: data.location.city.replace(/['"]+/g, ''),
                     state: data.location.state.replace(/['"]+/g, ''),
                     coordinates: data.coordinates,

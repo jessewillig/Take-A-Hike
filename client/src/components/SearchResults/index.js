@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { List } from "../List";
-import Hike from "../Hike"
+import Hike from "../HikeCard";
+
 
 function SearchResults(props) {
     return (
@@ -8,14 +9,13 @@ function SearchResults(props) {
             <List>
                 {props.trailResults.map(hike => (
                     <Hike
-                        trailResults={props.trailResults}
-
+                        name = {hike.name}
+                        city = {hike.city}
+                        state = {hike.state}
+                        image_url = {hike.image_url}
                     />
                 ))}
-                <Hike
-                    trailResults={props.trailResults}
-
-                />
+         
             </List>
         </div>
     )

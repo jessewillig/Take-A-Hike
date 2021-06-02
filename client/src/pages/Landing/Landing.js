@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import SearchBar from '../../components/SearchBar'
 import SearchResults from '../../components/SearchResults'
 const axios = require('axios');
-//import CommentForm from "../../components/CommentForm"
 
 
 function Landing (props) {
