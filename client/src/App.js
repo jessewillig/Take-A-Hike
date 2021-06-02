@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/Signup';
+import Saved from './pages/Profile/Profile'
 const axios = require('axios');
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
                      />
                     <Route exact path='/signup' component={Signup} />
                     <Route exact path='/login' component={Login} />
+                    <Route exact path='/saved' component={Saved} />
                 </Switch>
                 <Footer />
             </Router>
