@@ -15,7 +15,6 @@ function App() {
         <HikeProvider>
             <Router>
                 <Nav />
-                <Header />
                 <Switch>
                     <Route exact path='/' component={Landing} />
                     <Route exact path='/signup' component={Signup} />

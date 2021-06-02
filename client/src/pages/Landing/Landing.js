@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
-import SearchBar from '../../components/SearchBar'
-//import CommentForm from "../../components/CommentForm"
+import React, { useState } from 'react';
+import SearchBar from '../../components/SearchBar';
+import Header from "../../components/Jumbotron";
 
 
-function Landing () {
-   
+function Landing() {
+
     return (
         <div>
-            <SearchBar/>
+            <Header />
+            <SearchBar />
         </div>
 
     )
