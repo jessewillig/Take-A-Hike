@@ -1,16 +1,16 @@
 import axios from "axios";
 
-const yelp = require('yelp-fusion');
-const client = yelp.client(process.env.REACT_APP_YELP_API_KEY);
+// const yelp = require('yelp-fusion');
+// const client = yelp.client(process.env.REACT_APP_YELP_API_KEY);
 
-client.search({
-  term: 'hiking',
-  location: 'snohomish',
-}).then(response => {
-  console.log(response.jsonBody.businesses[0].name);
-}).catch(e => {
-  console.log(e);
-});
+// client.search({
+//   term: 'hiking',
+//   location: 'snohomish',
+// }).then(response => {
+//   console.log(response.jsonBody.businesses[0].name);
+// }).catch(e => {
+//   console.log(e);
+// });
 
 
 const weatherbit = async (longitude, latitude) => {

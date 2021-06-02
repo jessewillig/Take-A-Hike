@@ -21,12 +21,12 @@ function App() {
     }
     const yelpFetch = async (location) => {
         await axios
-            .post("http://localhost:3001/api/yelp", { location: "Snohomish"})
+            .post("http://localhost:3001/api/yelp", { location: location})
             .then(response => {  
                 console.log(response);
                 console.log(response.data[0]);
                      setTrailResults(
-                     response.slice(0,10).map(data => ({
+                     response.data.map(data => ({
                          name: data.name.replace(/['"]+/g, ''),
                          city: data.location.city.replace(/['"]+/g, ''),
                          state: data.location.state.replace(/['"]+/g, ''),
