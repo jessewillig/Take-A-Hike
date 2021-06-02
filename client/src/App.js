@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HikeProvider } from "./utils/GlobalState"
 import Header from "./components/Jumbotron"
@@ -15,34 +15,34 @@ function App() {
     const [location, setLocation] = useState('');
     const [trailResults, setTrailResults] = useState('Search for a trail!')
     function handleSubmit(e) {
-        yelpFetch (location)
+        yelpFetch(location)
         e.preventDefault();
     }
     const yelpFetch = async (location) => {
         await axios
-            .post("localhost:3001/api/yelp", { location: "Snohomish"})
-            .then(response => {  
+            .post("http://localhost:3001/api/yelp", { location: location })
+            .then(response => {
                 console.log(response);
-                    // setTrailResults(
-                    // response.data.businesses.slice(0,10).map(business => ({
-                    //     name: business.name.replace(/['"]+/g, ''),
-                    //     city: business.location.city.replace(/['"]+/g, ''),
-                    //     state: business.location.state.replace(/['"]+/g, ''),
-                    //     coordinates: business.coordinates,
-                    //     image_url: business.image_url
-                    // }))
-                // )
+                setTrailResults(
+                response.data.slice(0,10).map(data => ({
+                     name: data.name.replace(/['"]+/g, ''),
+                    city: data.location.city.replace(/['"]+/g, ''),
+                    state: data.location.state.replace(/['"]+/g, ''),
+                    coordinates: data.coordinates,
+                    image_url: data.image_url
+                }))
+                )
             })
             .catch(err => {
                 console.log(err);
             });
-        };
+    };
     return (
         <HikeProvider>
             <Router>
                 <Nav />
                 <Switch>
-                    <Route 
+                    <Route
                         exact path='/'
                         render={() => (
                             <Landing
@@ -53,7 +53,7 @@ function App() {
                             />
                         )}
 
-                     />
+                    />
                     <Route exact path='/signup' component={Signup} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/saved' component={Saved} />
