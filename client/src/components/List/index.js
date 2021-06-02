@@ -8,5 +8,7 @@ export const List = ({children}) => (
 );
 
 export function ListItem({children}) {
-    return <li className="uk-list uk-list-striped uk-list-large">{children}</li>
+    return <li className="uk-list uk-list-striped uk-list-large">
+        {children}
+        </li>
 }
