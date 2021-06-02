@@ -6,6 +6,9 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const mongoose = require("mongoose");
 const router = require("./routes");
+const cors = require('cors');
+
+
 
 //Set up app and store session
 const PORT = process.env.PORT || 3001;
@@ -14,6 +17,8 @@ const store = new MongoDBStore({
   uri: process.env.MONGODB_URI || "mongodb://localhost/Hike",
   collection: "sessions"
 });
+
+app.use(cors());
 
 store.on("error", (error) => {
   console.log(error);
