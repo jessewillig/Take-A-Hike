@@ -15,9 +15,14 @@ function Landing (props) {
             location={props.location}
             trailResults={props.trailResults}
         />
-        <SearchResults
+        {props.trailResults.length ? (
+            <SearchResults
             trailResults={props.trailResults}
         />
+        ): (
+            <h1>Search for a hike to begin</h1>
+        )}
+        
         </div>
 
     )
