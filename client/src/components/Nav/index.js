@@ -8,9 +8,9 @@ function Nav() {
             <nav className="uk-navbar-container nav">
                 <div className="uk-navbar-left">
                     <ul className="uk-navbar-nav">
-                        <li className="uk-active"><Link to="/">Take a Hike</Link></li>
-                        <li><Link to="/saved">Saved</Link></li>
-                        <li><Link to="/signup">Sign-Up</Link></li>
+                        <li ><Link className="nav-link" to="/">Take a Hike</Link></li>
+                        <li><Link className="nav-link-right" to="/saved">Saved</Link></li>
+                        <li ><Link className="nav-link-right" to="/signup">Sign-Up</Link></li>
                     </ul>
                 </div>
             </nav>
