@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Login from './pages/Login/Login'
 import Signup from './pages/SignUp/Signup'
+import Saved from './pages/Profile/Profile'
 
 function App() {
     document.title = "Take A Hike"
