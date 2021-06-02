@@ -1,13 +1,14 @@
 import React from "react";
 import "./style.css";
 
-function SearchResults(props) {
+function SearchResults() {
   return (
-    <ul className="trails-list search-results">
-      <li className="trails-list-item">
-        <h2>{props.name}</h2>
-      </li>
-    </ul>
+    <div className="uk-card uk-card-default uk-card-hover uk-width-1-4@m uk-margin-left">
+    <div className="search-result">
+        <h2>Trail Name: {JSON.stringify(trailResults[0].name)}</h2>
+        <p>Location: {JSON.stringify([trailResults[0].location.city, trailResults.location.state])}</p>
+    </div>
+  </div>
   );
 }
 

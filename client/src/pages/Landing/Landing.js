@@ -1,12 +1,15 @@
-import React from 'react';
-import SearchBar from '../../components/SearchBar';
+import React, {useState} from 'react';
+import SearchBar from '../../components/SearchBar'
+//import CommentForm from "../../components/CommentForm"
 
 
 function Landing () {
-
+   
     return (
+        <div>
+            <SearchBar/>
+        </div>
 
-        <SearchBar />
     )
 }
 export default Landing
