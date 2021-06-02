@@ -1,12 +1,13 @@
 import React from "react";
-import {ListItem} from "../List";
 
-function Hike(props) {
-  return(
-    <div>
 
-    </div>
-  );
+
+function Hike() {
+    return(
+        <div>
+
+        </div>
+    )
 }
 
 export default Hike
