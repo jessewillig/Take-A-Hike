@@ -20,24 +20,18 @@ function App() {
     }
     const yelpFetch = async (location) => {
         await axios
-            .get(
-                `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=hiking&term=hiking&location=${location}`,
-            {
-                headers: {
-                Authorization: `Bearer Mw30ITWflSolse_YhQacZ7frFs0bKAwh-wteoRdVU4o3S9bfSkLyRsUsCToHzGSzZEvalTsvVasyid3MUq_HdOf3RGI-GUcamb557Pe7CGC5CsDVlmESpAApUgmiYHYx`,
-                },
-            }
-            )
+            .post("localhost:3001/api/yelp", { location: "Snohomish"})
             .then(response => {  
-                setTrailResults(
-                response.data.businesses.slice(0,10).map(business => ({
-                    name: business.name.replace(/['"]+/g, ''),
-                    city: business.location.city.replace(/['"]+/g, ''),
-                    state: business.location.state.replace(/['"]+/g, ''),
-                    coordinates: business.coordinates,
-                    image_url: business.image_url
-                }))
-                )
+                console.log(response);
+                    // setTrailResults(
+                    // response.data.businesses.slice(0,10).map(business => ({
+                    //     name: business.name.replace(/['"]+/g, ''),
+                    //     city: business.location.city.replace(/['"]+/g, ''),
+                    //     state: business.location.state.replace(/['"]+/g, ''),
+                    //     coordinates: business.coordinates,
+                    //     image_url: business.image_url
+                    // }))
+                // )
             })
             .catch(err => {
                 console.log(err);
