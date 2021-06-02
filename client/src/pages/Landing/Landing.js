@@ -14,12 +14,9 @@ function Landing (props) {
             location={props.location}
             trailResults={props.trailResults}
         />
-        
-            <SearchResults
+        <SearchResults
             trailResults={props.trailResults}
         />
-        
-        
         </div>
 
     )
