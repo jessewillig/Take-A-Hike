@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/Signup';
 import Saved from './pages/Profile/Profile'
+import { PromiseProvider } from 'mongoose';
 const axios = require('axios');
 
 function App() {
@@ -20,17 +21,18 @@ function App() {
     }
     const yelpFetch = async (location) => {
         await axios
-            .post("http://localhost:3001/api/yelp", { location: location })
-            .then(response => {
+            .post("http://localhost:3001/api/yelp", { location: location})
+            .then(response => {  
                 console.log(response);
-                setTrailResults(
-                // response.data.map(data => ({
-                //     name: data.name.replace(/['"]+/g, ''),
-                //     city: data.location.city.replace(/['"]+/g, ''),
-                //     state: data.location.state.replace(/['"]+/g, ''),
-                //     coordinates: data.coordinates,
-                //     image_url: data.image_url
-                // }))
+                console.log(response.data[0]);
+                     setTrailResults(
+                     response.data.map(data => ({
+                         name: data.name.replace(/['"]+/g, ''),
+                         city: data.location.city.replace(/['"]+/g, ''),
+                         state: data.location.state.replace(/['"]+/g, ''),
+                         coordinates: data.coordinates,
+                         image_url: data.image_url
+                    }))
                 )
             })
             .catch(err => {
