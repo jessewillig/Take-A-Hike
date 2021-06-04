@@ -25,7 +25,7 @@ function SearchResults(props) {
 
   return (
 
-    <List>
+    <List className = "list">
       {Hikes}
     </List>
 
