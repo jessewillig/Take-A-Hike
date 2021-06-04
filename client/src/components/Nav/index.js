@@ -9,7 +9,6 @@ function Nav() {
                 <div className="uk-navbar-left">
                     <ul className="uk-navbar-nav">
                         <li ><Link className="nav-link" to="/">Take a Hike</Link></li>
-                        <li><Link className="nav-link-right" to="/saved">Saved</Link></li>
                         <li ><Link className="nav-link-right" to="/signup">Sign-Up</Link></li>
                     </ul>
                 </div>

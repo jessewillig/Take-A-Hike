@@ -8,7 +8,6 @@ import Nav from './components/Nav';
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/Signup';
 import Saved from './pages/Profile/Profile'
-import { PromiseProvider } from 'mongoose';
 const axios = require('axios');
 
 function App() {
@@ -43,6 +42,7 @@ function App() {
         <HikeProvider>
             <Router>
                 <Nav />
+                <Header/>
                 <Switch>
                     <Route
                         exact path='/'
@@ -58,7 +58,6 @@ function App() {
                     />
                     <Route exact path='/signup' component={Signup} />
                     <Route exact path='/login' component={Login} />
-                    <Route exact path='/saved' component={Saved} />
                 </Switch>
                 <Footer />
             </Router>

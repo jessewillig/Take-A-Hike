@@ -18,14 +18,14 @@ const hikeSchema = new Schema({
     image: {
         type: String
     },
-    comments : [{
-        type: Schema.Types.ObjectId, 
-        ref: 'Comment'
-    }],
-    user_id: { 
-        type: Schema.Types.ObjectId, 
-        ref: 'User',
-    }
+    // comments : [{
+    //     type: Schema.Types.ObjectId, 
+    //     ref: 'Comment'
+    // }],
+    // user_id: { 
+    //     type: Schema.Types.ObjectId, 
+    //     ref: 'User',
+    // }
 });
 
 const Hike = mongoose.model('Hike', hikeSchema);

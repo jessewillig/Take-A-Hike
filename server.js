@@ -8,8 +8,6 @@ const mongoose = require("mongoose");
 const router = require("./routes");
 const cors = require('cors');
 
-
-
 //Set up app and store session
 const PORT = process.env.PORT || 3001;
 const app = express();
