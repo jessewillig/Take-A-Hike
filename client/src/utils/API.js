@@ -1,16 +1,5 @@
 import axios from "axios";
 
-// const yelp = require('yelp-fusion');
-// const client = yelp.client(process.env.REACT_APP_YELP_API_KEY);
-
-// client.search({
-//   term: 'hiking',
-//   location: 'snohomish',
-// }).then(response => {
-//   console.log(response.jsonBody.businesses[0].name);
-// }).catch(e => {
-//   console.log(e);
-// });
 
 
 const weatherbit = async (longitude, latitude) => {
@@ -47,8 +36,6 @@ const weatherbit = async (longitude, latitude) => {
 // 	console.error(error);
 // });
 
-//yelpFetch('trail', 'olympia');
-
 const signup = (user) => axios.post("/api/users/", user);
 const login = (user) => axios.post("/api/users/login", user);
 const logout = () => axios.post("/api/users/logout");
@@ -57,7 +44,6 @@ const postComment = () => axios.post("/api/comments");
 
 export {
   weatherbit,
-  //yelpFetch,
   signup,
   login,
   logout,

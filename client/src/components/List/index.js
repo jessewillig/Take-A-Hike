@@ -1,14 +1,14 @@
 import React from "react";
 import "./style.css";
 
-export const List = ({children}) => (
-    <ul className="uk-container-expand uk-text-center">
-        {children}
-    </ul>
+// This component exports both the List and ListItem components
+
+export const List = ({ children }) => (
+  <ul className="list-group">
+    {children}
+  </ul>
 );
 
-export function ListItem({children}) {
-    return <li className="uk-list uk-list-striped uk-list-large">
-        {children}
-        </li>
+export function ListItem({ children }) {
+  return <ul className="list-group-item">{children}</ul>;
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HikeProvider } from "./utils/GlobalState"
 import Header from "./components/Jumbotron"
@@ -12,40 +12,39 @@ import { PromiseProvider } from 'mongoose';
 const axios = require('axios');
 
 function App() {
+    const trails = [];
     document.title = "Take A Hike"
     const [location, setLocation] = useState('');
-    const [trailResults, setTrailResults] = useState('Search for a trail!')
+    const [trailResults, setTrailResults] = useState([])
     function handleSubmit(e) {
-        yelpFetch (location)
+        yelpFetch(location)
         e.preventDefault();
     }
     const yelpFetch = async (location) => {
         await axios
-            .post("http://localhost:3001/api/yelp", { location: location})
-            .then(response => {  
-                console.log(response);
-                console.log(response.data[0]);
-                     setTrailResults(
-                     response.data.map(data => ({
-                         name: data.name.replace(/['"]+/g, ''),
-                         city: data.location.city.replace(/['"]+/g, ''),
-                         state: data.location.state.replace(/['"]+/g, ''),
-                         coordinates: data.coordinates,
-                         image_url: data.image_url
-                    }))
+            .post("http://localhost:3001/api/yelp", { location: location })
+            .then(response => {
+                console.log(response.data);
+                setTrailResults(response.data.map(data => ({
+                    name: data.name.replace(/['"]+/g, ''),
+                    city: data.location.city.replace(/['"]+/g, ''),
+                    state: data.location.state.replace(/['"]+/g, ''),
+                    coordinates: data.coordinates,
+                    image_url: data.image_url
+                }))
                 )
+
             })
             .catch(err => {
                 console.log(err);
             });
-        };
+    };
     return (
         <HikeProvider>
             <Router>
                 <Nav />
-                <Header />
                 <Switch>
-                    <Route 
+                    <Route
                         exact path='/'
                         render={() => (
                             <Landing
@@ -56,7 +55,7 @@ function App() {
                             />
                         )}
 
-                     />
+                    />
                     <Route exact path='/signup' component={Signup} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/saved' component={Saved} />
