@@ -12,28 +12,28 @@ import { PromiseProvider } from 'mongoose';
 const axios = require('axios');
 
 function App() {
+    const trails = [];
     document.title = "Take A Hike"
     const [location, setLocation] = useState('');
-    const [trailResults, setTrailResults] = useState('Search for a trail!')
+    const [trailResults, setTrailResults] = useState([])
     function handleSubmit(e) {
         yelpFetch(location)
         e.preventDefault();
     }
     const yelpFetch = async (location) => {
         await axios
-            .post("http://localhost:3001/api/yelp", { location: location})
-            .then(response => {  
-                console.log(response);
-                console.log(response.data[0]);
-                     setTrailResults(
-                     response.data.map(data => ({
-                         name: data.name.replace(/['"]+/g, ''),
-                         city: data.location.city.replace(/['"]+/g, ''),
-                         state: data.location.state.replace(/['"]+/g, ''),
-                         coordinates: data.coordinates,
-                         image_url: data.image_url
-                    }))
+            .post("http://localhost:3001/api/yelp", { location: location })
+            .then(response => {
+                console.log(response.data);
+                setTrailResults(response.data.map(data => ({
+                    name: data.name.replace(/['"]+/g, ''),
+                    city: data.location.city.replace(/['"]+/g, ''),
+                    state: data.location.state.replace(/['"]+/g, ''),
+                    coordinates: data.coordinates,
+                    image_url: data.image_url
+                }))
                 )
+
             })
             .catch(err => {
                 console.log(err);
