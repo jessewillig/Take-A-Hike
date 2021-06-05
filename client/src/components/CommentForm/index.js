@@ -13,12 +13,12 @@ function CommentForm() {
             text: commentRef.current.value,
             rating: ratingRef.current.value
         })
-        .then (response => { 
-            console.log(response.data)
-        })
-        .catch(error => { 
-            console.log(error)
-        })
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
