@@ -1,0 +1,13 @@
+.header {
+    background: linear-gradient(0deg, #f0e2d0 0%, #70af85 75%) !important;
+}
+
+.header p {
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 300;
+}
+
+.uk-cover-container {
+    text-align: center;
+}

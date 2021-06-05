@@ -1,0 +1,10 @@
+.nav {
+    background: linear-gradient(0deg, #f0e2d0 0%, #70af85 75%) !important;
+}
+.nav-link {
+    font-family: 'Gloria Hallelujah', cursive !important;
+}
+.nav-link-right {
+    font-family: 'Gloria Hallelujah', cursive !important;
+    text-align: right !important;
+}
