@@ -1,28 +1,26 @@
 //Import dependencies
-require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const PORT = process.env.PORT || 3001;
+const app = express();
+
+
+require("dotenv").config();
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const mongoose = require("mongoose");
 const router = require("./routes");
 const cors = require('cors');
 
-//Set up app and store session
-const PORT = process.env.PORT || 3001;
-const app = express();
+//Session
 const store = new MongoDBStore({
   uri: process.env.MONGODB_URI || "mongodb://localhost/Hike",
   collection: "sessions"
 });
-
-app.use(cors());
-
 store.on("error", (error) => {
   console.log(error);
 });
 
-//Session 
 app.use(session({
   secret: "Super secret secret",
   cookie: {
@@ -33,6 +31,8 @@ app.use(session({
   saveUninitialized: true,
   resave: true
 }))
+
+app.use(cors());
 
 //Parse app body as json
 app.use(express.json());
@@ -57,6 +57,12 @@ mongoose.connect(
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Define any API routes before this runs
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
 
 app.listen(PORT, function () {
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
