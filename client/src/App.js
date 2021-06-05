@@ -38,6 +38,7 @@ function App() {
                 console.log(err);
             });
     };
+
     return (
         <HikeProvider>
             <Router>
@@ -65,4 +66,4 @@ function App() {
 
     )
 }
-export default App
+export default App;
