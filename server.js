@@ -14,7 +14,7 @@ const cors = require('cors');
 
 //Session
 const store = new MongoDBStore({
-  uri: process.env.MONGODB_URI || "mongodb://localhost/Hike",
+  uri: process.env.MONGODB_URI || "mongodb://tranquil-scrubland-42356.herokuapp.com//Hike",
   collection: "sessions"
 });
 store.on("error", (error) => {
@@ -44,7 +44,7 @@ app.use(router);
 // });
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/Hike',
+  process.env.MONGODB_URI || 'mongodb://tranquil-scrubland-42356.herokuapp.com//Hike',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
