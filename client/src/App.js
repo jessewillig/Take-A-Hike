@@ -19,7 +19,7 @@ function App() {
     }
     const yelpFetch = async (location) => {
         await axios
-            .post("http://tranquil-scrubland-42356.herokuapp.com/api/yelp", { location: location })
+            .post("https://tranquil-scrubland-42356.herokuapp.com/api/yelp", { location: location })
             .then(response => {
                 console.log(response.data);
                 setTrailResults(response.data.map(data => ({
