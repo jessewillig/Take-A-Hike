@@ -5,6 +5,7 @@ import "./style.css"
 
 const addHike = props => {
     const hike = {
+        id: props.id,
         title: props.name,
         city: props.city,
         state: props.state,
@@ -25,7 +26,7 @@ function Hike(props) {
             <div className="uk-card uk-card-default uk-card-hover uk-width-1-4@m uk-margin-left search-result">
                 <h2>Trail Name: {props.name}</h2>
                 <p>Location: {props.city} , {props.state}</p>
-                <img src={props.image_url} height="150px" width="150px" alt="Yelp" uk-img></img>
+                <img src={props.image_url} height="150px" width="150px" alt="Yelp" className = "uk-img"></img>
                 <br></br>
                 <br></br>
                 <button className="uk-button uk-button-primary uk-button-small" onClick={() => addHike(props)}>Save</button>
