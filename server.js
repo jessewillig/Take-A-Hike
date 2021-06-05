@@ -14,7 +14,7 @@ const cors = require('cors');
 
 //Session
 const store = new MongoDBStore({
-  uri: process.env.MONGODB_URI || "mongodb://tranquil-scrubland-42356.herokuapp.com//Hike",
+  uri: process.env.MONGODB_URI || "mongodb://localhost/Hike",
   collection: "sessions"
 });
 store.on("error", (error) => {
@@ -39,12 +39,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(router);
-// router.use(function (req, res) {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+router.use(function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://tranquil-scrubland-42356.herokuapp.com//Hike',
+  process.env.MONGODB_URI || 'mongodb://localhost/Hike',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -64,6 +64,6 @@ app.get("*", (req, res) => {
 });
 
 
-app.listen(PORT, function () {
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(PORT, () => {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
