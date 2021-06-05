@@ -55,6 +55,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+router.use(function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
 app.listen(PORT, function () {
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
