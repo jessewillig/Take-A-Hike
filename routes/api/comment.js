@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const withAuth = require("../../utils/auth");
 const commentController = require("../../controllers/commentController")
 
 // Matches with "/api/comments"
