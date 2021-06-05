@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const withAuth = require("../../utils/auth");
 const hikeController = require("../../controllers/hikeController")
 
 // Matches with "/api/hikes"
