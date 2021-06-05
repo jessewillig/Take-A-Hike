@@ -1,3 +1,6 @@
-a{
+a {
     color:white !important
+}
+.uk-flex { 
+    align-items: center;
 }
