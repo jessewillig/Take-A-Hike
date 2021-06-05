@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function LoginUI() {
 
-    const [state, dispatch] = useHikeContext();
+    const [dispatch] = useHikeContext();
     const history = useHistory();
 
     const emailRef = useRef();

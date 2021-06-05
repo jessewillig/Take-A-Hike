@@ -4,6 +4,7 @@
 This web application allows the user to view and save hikes in a chosen location, displays the weather for the area hiking in. It uses MERN Stack (MongoDB, Express, React, Node), React.js, UIKit, Axioz and Express.
 
 ## Link to Deployed Application
+https://tranquil-scrubland-42356.herokuapp.com/
 
 ## Installation
 - npm i 
@@ -17,6 +18,7 @@ This web application allows the user to view and save hikes in a chosen location
 - Yelp Fusion API
 
 ## Screenshots
+![image](https://user-images.githubusercontent.com/74380703/120881704-4b4d4c00-c612-11eb-835a-6ec0145367ac.png)
 
 ## License
 ISC
