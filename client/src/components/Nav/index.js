@@ -29,7 +29,7 @@ function Nav() {
                     <ul className="uk-navbar-nav">
                         <li ><Link className="nav-link" to="/">Take a Hike</Link></li>
                         {state.user.user_id ?
-                            <li ><a className="nav-link-right" href="#" onClick={handleLogOut} >Logout</a></li>
+                            <li ><a className="nav-link-right" href="/" onClick={handleLogOut} >Logout</a></li>
                             :
                             <li ><Link className="nav-link-right" to="/signup">Sign-Up</Link></li>}
                     </ul>

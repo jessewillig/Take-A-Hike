@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { saveHike } from "../../utils/API";
 import { ListItem } from "../List";
 import "./style.css"
