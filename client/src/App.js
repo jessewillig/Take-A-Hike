@@ -29,7 +29,8 @@ function App() {
                     city: data.location.city.replace(/['"]+/g, ''),
                     state: data.location.state.replace(/['"]+/g, ''),
                     coordinates: data.coordinates,
-                    image_url: data.image_url
+                    image_url: data.image_url,
+                    url: data.url
                 }))
                 )
 

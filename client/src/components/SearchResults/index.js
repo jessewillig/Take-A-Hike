@@ -20,6 +20,7 @@ function SearchResults(props) {
       city={hike.city}
       state={hike.state}
       image_url={hike.image_url}
+      url = {hike.url}
     />
   ));
 

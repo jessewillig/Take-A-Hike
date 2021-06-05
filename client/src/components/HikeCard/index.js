@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { saveHike } from "../../utils/API";
 import { ListItem } from "../List";
+import "./style.css"
 
 const addHike = props => {
     const hike = {
@@ -8,6 +9,7 @@ const addHike = props => {
         city: props.city,
         state: props.state,
         image: props.image_url,
+        url: props.url
     }
     console.log(hike)
     saveHike(hike)
@@ -24,7 +26,12 @@ function Hike(props) {
                 <h2>Trail Name: {props.name}</h2>
                 <p>Location: {props.city} , {props.state}</p>
                 <img src={props.image_url} height="150px" width="150px" alt="Yelp" uk-img></img>
+                <br></br>
+                <br></br>
                 <button className="uk-button uk-button-primary uk-button-small" onClick={() => addHike(props)}>Save</button>
+                <br></br>
+                <br></br>
+                <button className="uk-button uk-button-primary uk-button-small"><a target="_blank" rel="noopener noreferrer" href={props.url}>View Hike</a></button>
             </div>
         </ListItem>
 
