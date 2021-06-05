@@ -11,7 +11,6 @@ function SearchResults(props) {
       props.trailResults[i]
     )
   }
-  console.log(trails)
 
   const Hikes = trails.map(hike => (
     <Hike
@@ -23,7 +22,6 @@ function SearchResults(props) {
       url={hike.url}
     />
   ));
-
 
   return (
 

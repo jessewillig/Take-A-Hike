@@ -23,6 +23,7 @@ function App() {
             .then(response => {
                 console.log(response.data);
                 setTrailResults(response.data.map(data => ({
+                    id: data.id,
                     name: data.name.replace(/['"]+/g, ''),
                     city: data.location.city.replace(/['"]+/g, ''),
                     state: data.location.state.replace(/['"]+/g, ''),
@@ -37,6 +38,7 @@ function App() {
                 console.log(err);
             });
     };
+
     return (
         <HikeProvider>
             <Router>
@@ -64,4 +66,4 @@ function App() {
 
     )
 }
-export default App
+export default App;

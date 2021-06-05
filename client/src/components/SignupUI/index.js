@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function SignupUI() {
 
-    const [state, dispatch] = useHikeContext();
+    const [dispatch] = useHikeContext();
     const history = useHistory();
 
     const usernameRef = useRef();
