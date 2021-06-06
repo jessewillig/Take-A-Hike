@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function LoginUI() {
 
-    const [dispatch] = useHikeContext();
+    const [state, dispatch] = useHikeContext();
     const history = useHistory();
 
     const emailRef = useRef();
@@ -39,28 +39,28 @@ function LoginUI() {
 
     return (
         <div>
-        <div className="uk-card uk-card-default uk-card-hover uk-width-1-3@m  login">
-            <div className="uk-container uk-container-small">
-             <form>
-                 <fieldset className="uk-fieldset">
-                <legend className="uk-legend">Login</legend>
-                <div className="uk-margin">
-                    <input className="uk-input" type="text" placeholder="Email" ref={emailRef}></input>
+            <div className="uk-card uk-card-default uk-card-hover uk-width-1-3@m  login">
+                <div className="uk-container uk-container-small">
+                    <form>
+                        <fieldset className="uk-fieldset">
+                            <legend className="uk-legend">Login</legend>
+                            <div className="uk-margin">
+                                <input className="uk-input" type="text" placeholder="Email" ref={emailRef}></input>
+                            </div>
+                            <div className="uk-margin">
+                                <input className="uk-input" type="password" placeholder="Password" ref={passwordRef}></input>
+                            </div>
+                            <div className="uk-margin">
+                                <button className="uk-button uk-button-primary" type="submit" onClick={handleLogin}>Login</button>
+                            </div>
+                            <div className="uk-margin">
+                                <ul><Link to="/signup">Sign-Up Instead!</Link></ul>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-                <div className="uk-margin">
-                    <input className="uk-input" type="password" placeholder="Password" ref={passwordRef}></input>
-                </div>
-                <div className="uk-margin">
-                    <button className="uk-button uk-button-primary" type="submit" onClick={handleLogin}>Login</button>
-                </div>
-                <div className="uk-margin">
-                <ul><Link to="/signup">Sign-Up Instead!</Link></ul>                
-                </div>
-                </fieldset>
-            </form>
             </div>
         </div>
-    </div>
     );
 }
 
