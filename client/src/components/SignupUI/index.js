@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function SignupUI() {
 
-    const [dispatch] = useHikeContext();
+    const [state, dispatch] = useHikeContext();
     const history = useHistory();
 
     const usernameRef = useRef();
@@ -33,7 +33,7 @@ function SignupUI() {
             })
             .catch(error => {
                 dispatch({
-                    ERROR
+                    type: ERROR
                 })
             })
     }
